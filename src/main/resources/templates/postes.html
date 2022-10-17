@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="/src/main/resources/static/assets/css/style.css"/>
+
+    <title>CRUD do Fluvu</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"/>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
+  </head>
+
+  <body>
+    
+    <div class="container">
+      <!--Navbar-->
+      <nav class="navbar d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">Fluvu</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Central</a>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link active">Poste</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">SensorBoeiro</a>
+          </li>
+        </ul>
+      </nav>
+      <!--fim Navbar-->
+
+      <div class="row">
+        <div class="col-lg-3">
+          <a th:href="@{/postes/cadastro}" class="btn btn-primary" btn-sm mb-3 >Cadastrar</a>
+        </div>
+      </div>
+
+      <!--Tabela Central-->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Recepção de Energia</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each = "poste:${postes}">
+            <td th:text= "${poste.id}"></td>
+            <td th:text= "${poste.recepecaoEnergia}"></td>
+           
+            <td>
+              <a th:href="@{/centrais/editar/{id} (id=${central.id})}" class="btn btn-secondary btn-sm mb-3">Editar</a>
+              <a th:href="@{/centrais/excluir/{id} (id=${central.id})}" class="btn btn-info btn-danger btn-sm mb-3">Excluir</a>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <!--fim Tabela Central-->
+
+    </div>
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+
+  </body>
+</html>

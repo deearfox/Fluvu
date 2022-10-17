@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="/src/main/resources/static/assets/css/style.css"
+    />
+
+    <title>CRUD do Fluvu</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!--Navbar-->
+      <nav
+        class="navbar d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">Cadastrar Energia</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a  href="@{/centrais}" class="nav-link">Central</a>
+          </li>
+          <li class="nav-item"><a th:href="@{/postes}" class="nav-link active">Poste</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">SensorBoeiro</a>
+          </li>
+        </ul>
+      </nav>
+      <!--fim Navbar-->
+
+      <div class="container">
+        <div class="row">
+          <div class="card-body">
+            <div class="col-md-6 container justify-content-center card">
+              <h1>Cadastrar Nova Energia</h1>
+
+              <!--Formulário Cadastrar Central-->
+              <form th:action="@{/postes}" th:object="${postes}" method="POST">
+                <!--Energia-->
+                <div class="mb-3">
+                  <label for="nome" class="form-label">Recepção de energia:</label>
+                  <input type="text" name="recepecaoEnergia" th:field="*{recepecaoEnergia" class="form-control" aria-describedby="recepecaoEnergia" placeholder="Digite o tipo de energia"/>
+                </div>
+                
+                <br>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+              </form>
+              <!-- fim Formulário Cadastrar Central-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script th:src="@{/"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        CentralController.list()
+      })
+    </script>
+  </body>
+</html>

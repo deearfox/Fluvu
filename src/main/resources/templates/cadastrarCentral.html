@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="/src/main/resources/static/assets/css/style.css"
+    />
+
+    <title>CRUD do Fluvu</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+
+      
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Cadastro Central</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/centrais}">Sistema Fluvu</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--fim Navbar-->
+
+      <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="card-body">
+            <div class="col-md-6 container justify-content-center card">
+              <h1>Cadastrar Nova Central</h1>
+
+              <!--Formulário Cadastrar Central-->
+              <form th:action="@{/centrais}" th:object="${centrais}" method="POST">
+                <!--Nome-->
+                <div class="mb-3">
+                  <label for="nome" class="form-label">Nome:</label>
+                  <input type="text" name="nome" th:field="*{nome}" class="form-control" aria-describedby="Nome" placeholder="Digite o nome da central"/>
+                </div>
+                <!--Cnpj-->
+                <div class="mb-3">
+                  <label for="cnpj" class="form-label">CNPJ:</label>
+                  <input type="text" name="cnpj" th:field="*{cnpj}" class="form-control" aria-describedby="Cnpj" placeholder="Digite o cnpj da central"/>
+                </div>
+                <!--Ação-->
+                <div class="mb-3">
+                  <label for="acao" class="form-label">Ação:</label>
+                  <input type="text" name="acao" th:field="*{acao}" class="form-control" id="Ação" aria-describedby="Ação" placeholder="Digite a ação corretiva/preventiva"/>
+                </div>
+
+                <br>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+              </form>
+              <!-- fim Formulário Cadastrar Central-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script th:src="@{/"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        CentralController.list()
+      })
+    </script>
+  </body>
+</html>
